@@ -1,0 +1,47 @@
+INSERT INTO dojos (name, created_at, updated_at)
+VALUES
+    ('Dojo 1', NOW(), NOW()),
+    ('Dojo 2', NOW(), NOW()),
+    ('Dojo 3', NOW(), NOW());
+    
+-- Elimina los 3 dojos que acabas de crear
+DELETE FROM dojos WHERE id IN (1, 2, 3);
+
+-- Crea 3 dojos nuevos
+INSERT INTO dojos (name, created_at, updated_at)
+VALUES
+    ('Dojo A', NOW(), NOW()),
+    ('Dojo B', NOW(), NOW()),
+    ('Dojo C', NOW(), NOW());
+
+-- Crea 3 ninjas que pertenezcan al primer dojo
+INSERT INTO ninjas (first_name, last_name, age, dojo_id, created_at, updated_at)
+VALUES
+    ('Ninja 1', 'Apellido 1', 25, 1, NOW(), NOW()),
+    ('Ninja 2', 'Apellido 2', 28, 1, NOW(), NOW()),
+    ('Ninja 3', 'Apellido 3', 23, 1, NOW(), NOW());
+
+-- Crea 3 ninjas que pertenezcan al segundo dojo
+INSERT INTO ninjas (first_name, last_name, age, dojo_id, created_at, updated_at)
+VALUES
+    ('Ninja 4', 'Apellido 4', 26, 2, NOW(), NOW()),
+    ('Ninja 5', 'Apellido 5', 22, 2, NOW(), NOW()),
+    ('Ninja 6', 'Apellido 6', 30, 2, NOW(), NOW());
+
+--  Crea 3 ninjas que pertenezcan al tercer dojo
+INSERT INTO ninjas (first_name, last_name, age, dojo_id, created_at, updated_at)
+VALUES
+    ('Ninja 7', 'Apellido 7', 27, 3, NOW(), NOW()),
+    ('Ninja 8', 'Apellido 8', 29, 3, NOW(), NOW()),
+    ('Ninja 9', 'Apellido 9', 24, 3, NOW(), NOW());
+
+--  Recupera todos los ninjas del primer dojo
+SELECT * FROM ninjas WHERE dojo_id = 1;
+
+--  Recupera todos los ninjas del último dojo
+SELECT * FROM ninjas WHERE dojo_id = 3;
+
+--  Recupera el dojo del último ninja
+SELECT d.* FROM dojos d
+INNER JOIN ninjas n ON d.id = n.dojo_id
+ORDER BY n.id DESC LIMIT 1;
