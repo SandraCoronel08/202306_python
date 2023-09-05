@@ -1,0 +1,51 @@
+Consulta 1
+SELECT c.name AS 'Nombre del País', l.language AS 'Idioma', l.percentage AS 'Porcentaje de Habla'
+FROM countries c
+JOIN languages l ON c.code = l.country_code
+WHERE l.language = 'esloveno'
+ORDER BY l.percentage DESC;
+
+Consulta 2
+SELECT c.name AS 'Nombre del País', COUNT(ct.id) AS 'Número de Ciudades'
+FROM countries c
+LEFT JOIN cities ct ON c.code = ct.country_code
+GROUP BY c.name
+ORDER BY COUNT(ct.id) DESC;
+
+Consulta 3:
+SELECT c.name AS 'Nombre del País', ct.name AS 'Nombre de la Ciudad', ct.population AS 'Población'
+FROM countries c
+JOIN cities ct ON c.code = ct.country_code
+WHERE c.name = 'Mexico' AND ct.population > 500000
+ORDER BY ct.population DESC;
+
+Consulta 4:
+SELECT c.name AS 'Nombre del País', l.language AS 'Idioma', l.percentage AS 'Porcentaje de Habla'
+FROM countries c
+JOIN languages l ON c.code = l.country_code
+WHERE l.percentage > 89
+ORDER BY l.percentage DESC;
+
+Consulta 5:
+SELECT name AS 'Nombre del País'
+FROM countries
+WHERE surface_area < 501 AND population > 100000;
+
+Consulta 6:
+SELECT name AS 'Nombre del País'
+FROM countries
+WHERE government_form = 'Monarquía Constitucional' AND capital > 200 AND life_expectancy > 75;
+
+Consulta 7:
+SELECT c.name AS 'Nombre del País', ct.name AS 'Nombre de la Ciudad', ct.district AS 'Distrito', ct.population AS 'Población'
+FROM countries c
+JOIN cities ct ON c.code = ct.country_code
+WHERE c.name = 'Argentina' AND ct.district = 'Buenos Aires' AND ct.population > 500000;
+
+Consulta 8:
+SELECT region AS 'Nombre de la Región', COUNT(id) AS 'Número de Países'
+FROM countries
+GROUP BY region
+ORDER BY COUNT(id) DESC;
+
+
