@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        p {
+            text-align: center;
+            font-size: 24px;
+            margin: 20px 0;
+        }
+        form {
+            display: flex;
+            justify-content: space-between;
+        }
+        button {
+            flex: 1;
+            margin: 0 5px;
+            padding: 10px;
+            font-size: 18px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Contador</h1>
+        <p>Número de visitas: {{ counter }}</p>
+        <form action="/increment" method="post">
+            <button type="submit" name="action" value="increment" class="btn btn-primary">Click +1</button>
+            <button type="submit" name="action" value="reset" class="btn btn-danger">Reset</button>
+        </form>
+    </div>
+</body>
+</html>
